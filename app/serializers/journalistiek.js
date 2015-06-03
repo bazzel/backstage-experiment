@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
@@ -9,7 +10,7 @@ export default DS.RESTSerializer.extend({
     return this._super(store, type, { journalistiek: hits });
   },
   normalize: function(typeClass, hash, prop) {
-    hash.id = hash.Id
+    hash.id = hash.Id;
 
     return this._super(typeClass, hash, prop);
   },

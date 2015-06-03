@@ -1,5 +1,8 @@
-<ul>
+<div class="list-group">
   {{#each model as |hit|}}
-  <li>{{hit.title}} - {{{hit.body}}}</li>
+  <div class="list-group-item">
+    <h4 class="list-group-item-heading">{{hit.title}}</h4>
+    <div class="list-group-item-text">{{{hit.body}}}</div>
+  </div>
   {{/each}}
-</ul>
+</div>
