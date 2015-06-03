@@ -1,5 +1,5 @@
 <ul>
-{{#each model.hits.hits as |hit|}}
-<li>{{hit._source.Title}}</li>
-{{/each}}
+  {{#each model as |hit|}}
+  <li>{{hit.title}} - {{{hit.body}}}</li>
+  {{/each}}
 </ul>
