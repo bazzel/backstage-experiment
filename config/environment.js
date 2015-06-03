@@ -22,7 +22,7 @@ module.exports = function(environment) {
       'script-src': "'self'",
       'font-src': "'self'",
       'connect-src': "'self' http://backstage-api.openstate.eu",
-      'img-src': "'self'",
+      'img-src': "'self' http://statischecontent.nl",
       'style-src': "'self'",
       'media-src': "'self'"
     }
