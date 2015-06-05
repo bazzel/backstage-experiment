@@ -18,13 +18,14 @@ export default Ember.ArrayController.extend({
         var ctrl = this;
 
         this.set('loadingMore', true);
-        this.store.find('journalistiek', { query: this.get('qry'), from: this.get('from'), size: 10 }).then(function() {
+        this.store.find('journalistiek', { query: this.get('qry'), from: this.get('from') }).then(function() {
           ctrl.set('loadingMore', false);
         });
       }
     }
   },
   doSearch: function() {
-    this.store.find('journalistiek', { query: this.get('qry'), size: 10 });
+    this.store.unloadAll('journalistiek');
+    this.store.find('journalistiek', { query: this.get('qry') });
   }.observes('qry')
 });

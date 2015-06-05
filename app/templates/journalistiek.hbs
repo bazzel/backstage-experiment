@@ -1,19 +1,18 @@
-<div class="list-group">
+<div class='list-group'>
   {{#each as |hit|}}
-  <div class="list-group-item">
-    <h4 class="list-group-item-heading">{{hit.title}}</h4>
-    <div class="list-group-item-text">{{{hit.body}}}</div>
+  <div class='list-group-item'>
+    <h4 class='list-group-item-heading'>{{hit.title}}</h4>
+    <div class='list-group-item-text'>{{{hit.body}}}</div>
   </div>
   {{else}}
-    Enter keywords and click Submit
+  <div class='jumbotron'>
+    <h1>NPO Backstage API <small>Journalistiek</small></h1>
+    <p>Enter one or more keywords in the Search box and click Submit.</p>
+  </div>
   {{/each}}
 </div>
 
 
 {{#if hasMore}}
-  {{#if loadingMore}}
-    Loading more...
-    {{else}}
-      <a href='#' {{action 'getMore'}}>Get More...</a>
-  {{/if}}
+  <button type='button' {{action 'getMore'}} class='btn btn-primary btn-lg btn-block' disabled={{if loadingMore 'disabled'}}>More <span class='caret'></span></button>
 {{/if}}
