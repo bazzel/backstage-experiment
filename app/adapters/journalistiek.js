@@ -2,7 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
-  findAll: function(store, type, sinceToken) {
+  findAll: function() {
     return Ember.A();
   },
   findQuery: function(store, type, query) {
