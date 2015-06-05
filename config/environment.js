@@ -19,11 +19,11 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self'",
+      'script-src': "'self' *",
       'font-src': "'self'",
-      'connect-src': "'self' http://backstage-api.openstate.eu",
+      'connect-src': "'self' *",
       'img-src': "'self' http://statischecontent.nl",
-      'style-src': "'self'",
+      'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     }
   };
