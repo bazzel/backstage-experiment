@@ -2,10 +2,12 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
+  findAll: function(store, type, sinceToken) {
+    return Ember.A();
+  },
   findQuery: function(store, type, query) {
-    var url = 'http://backstage-api.openstate.eu/v0/journalistiek/search',
-        data = Ember.merge(query, { size: 5 });
+    var url = 'http://backstage-api.openstate.eu/v0/journalistiek/search';
 
-    return Ember.$.post(url, JSON.stringify(data), null, 'json');
+    return Ember.$.post(url, JSON.stringify(query), null, 'json');
   }
 });

@@ -3,11 +3,17 @@ import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
   extractArray: function(store, type, payload) {
+    // `findAll` returns an empty array.
+    if (payload.length === 0) {
+      return payload;
+    }
+
     var hits = payload.hits.hits.map(function(hit) {
       return hit._source;
     });
-    // TODO: extract 'journalistiek'
-    return this._super(store, type, { journalistiek: hits });
+    payload = {};
+    payload[type.modelName] = hits;
+    return this._super(store, type, payload);
   },
   normalize: function(typeClass, hash, prop) {
     hash.id = hash.Id;
@@ -16,5 +22,10 @@ export default DS.RESTSerializer.extend({
   },
   keyForAttribute: function(attr, method) {
     return Ember.String.classify(attr);
+  },
+  extractMeta: function(store, typeClass, payload) {
+    if (payload && payload.hits) {
+      store.setMetadataFor(typeClass.modelName, { total: payload.hits.total });
+    }
   }
 });

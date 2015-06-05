@@ -1,8 +1,19 @@
 <div class="list-group">
-  {{#each model as |hit|}}
+  {{#each as |hit|}}
   <div class="list-group-item">
     <h4 class="list-group-item-heading">{{hit.title}}</h4>
     <div class="list-group-item-text">{{{hit.body}}}</div>
   </div>
+  {{else}}
+    Enter keywords and click Submit
   {{/each}}
 </div>
+
+
+{{#if hasMore}}
+  {{#if loadingMore}}
+    Loading more...
+    {{else}}
+      <a href='#' {{action 'getMore'}}>Get More...</a>
+  {{/if}}
+{{/if}}
