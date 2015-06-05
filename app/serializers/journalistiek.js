@@ -20,7 +20,7 @@ export default DS.RESTSerializer.extend({
 
     return this._super(typeClass, hash, prop);
   },
-  keyForAttribute: function(attr, method) {
+  keyForAttribute: function(attr) {
     return Ember.String.classify(attr);
   },
   extractMeta: function(store, typeClass, payload) {
